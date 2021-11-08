@@ -1,7 +1,7 @@
 package com.sergey_y.simpletweets.libs
 
 object Libs {
-    const val kotlin_version = "1.5.31"
+    const val kotlin_version = "1.5.30"
 
     object Plugin {
 
@@ -10,7 +10,7 @@ object Libs {
         const val agp = "com.android.tools.build:gradle:7.0.3"
     }
 
-    const val compose_version = "1.0.4"
-    const val accompanist_version = "0.21.0-beta"
+    const val compose_version = "1.0.3"
+    const val accompanist_version = "0.19.0"
 
 }
