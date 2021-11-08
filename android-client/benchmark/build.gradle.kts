@@ -150,7 +150,7 @@ val report = task("report") {
 }
 
 task("go") {
-//    dependsOn(report)
+    dependsOn(report)
     doLast {
         val benchmarksDir = BenchmarkConfig.localBenchmarkedComposeDirPath(projectDir)
         val files: Array<File> = benchmarksDir.listFiles() ?: emptyArray()
