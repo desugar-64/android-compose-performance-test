@@ -17,6 +17,9 @@ object TweetsApi {
     private val lorem: Lorem = LoremIpsum.getInstance()
     val list: List<Tweet>
 
+    private val postImageBank = mutableMapOf<Int, String>()
+    private val avatarBank = mutableMapOf<Int, String>()
+
     init {
         list = generateSequence {
             val id = UUID.randomUUID().toString()
@@ -31,7 +34,7 @@ object TweetsApi {
             val tweetText = generateText(rnd, tweetPoll != null)
             val tweetImages = if (tweetPoll != null) emptyList() else generateImageUrls()
 
-            val messages = rnd.nextInt(0, 30)
+            val messages = rnd.nextInt(0, 10)
             val comments = generateComments(rnd, messages)
             val tweet = Tweet(
                 id = id,
@@ -175,8 +178,29 @@ object TweetsApi {
         }
     }
 
+    private fun assetFilePathFor(relativePath: String, id: Int): String {
+        return "file:///android_asset/${relativePath}/${id}.jpg"
+    }
+
     private fun randomAvatarUrl(rnd: Random, gender: Gender): String {
-        return "https://randomuser.me/api/portraits/${gender.name.lowercase()}/${rnd.nextInt(1, 99)}.jpg"
+        var fuel = 200
+        var url = ""
+        while (fuel > 0) {
+            val id = rnd.nextInt(0, 199)
+            val canUse = avatarBank[id] == null
+            if (canUse) {
+                url = assetFilePathFor("avatars", id)
+                avatarBank[id] = url
+                break
+            }
+            fuel--
+        }
+
+        if (url.isEmpty()) {
+            url = assetFilePathFor("avatars", rnd.nextInt(0, 199)) // take a random one
+        }
+
+        return url
     }
 
     private fun generateImageUrls(): List<String> {
@@ -184,9 +208,20 @@ object TweetsApi {
         return if (rnd.nextBoolean()) {
             val imgCount = rnd.nextInt(1, 7)
             generateSequence {
-                val imgId = rnd.nextInt(0, 1000)
-                "https://picsum.photos/seed/${imgId}/1280/720"
-            }.take(imgCount).toList()
+                val imgId = rnd.nextInt(0, 99)
+                var fuel = 99
+                var url = ""
+                while (fuel > 0) {
+                    val canUse = postImageBank[imgId] == null
+                    if (canUse) {
+                        url = assetFilePathFor("post_images", imgId)
+                        postImageBank[imgId] = url
+                        break
+                    }
+                    fuel--
+                }
+                url
+            }.take(imgCount).filter(String::isNotEmpty).toList()
         } else {
             emptyList()
         }

@@ -92,7 +92,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-insets:${com.sergey_y.simpletweets.libs.Libs.accompanist_version}")
     implementation("com.google.accompanist:accompanist-systemuicontroller:${com.sergey_y.simpletweets.libs.Libs.accompanist_version}")
     implementation("com.google.accompanist:accompanist-navigation-animation:${com.sergey_y.simpletweets.libs.Libs.accompanist_version}")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

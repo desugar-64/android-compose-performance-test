@@ -70,7 +70,7 @@ private fun TweetPollProgressLine(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .heightIn(min = ButtonDefaults.MinHeight + 16.dp)
+            .heightIn(min = ButtonDefaults.MinHeight + 4.dp)
             .drawBehind {
                 val cornerSize = 6.dp.toPx()
                 val width = (size.width * animatedProgress).coerceAtLeast(cornerSize)
