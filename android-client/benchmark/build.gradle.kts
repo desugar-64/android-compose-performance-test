@@ -84,7 +84,7 @@ dependencies {
     implementation("androidx.test.ext:junit:1.1.3")
     implementation("androidx.test.espresso:espresso-core:3.4.0")
     implementation("androidx.test.uiautomator:uiautomator:2.2.0")
-    implementation("androidx.benchmark:benchmark-macro-junit4:1.1.0-alpha11")
+    implementation("androidx.benchmark:benchmark-macro-junit4:1.1.0-alpha12")
 
     compileOnly("space.kscience:plotlykt-server:0.5.0")
 }
@@ -182,7 +182,7 @@ task("go") {
 
         val graphPrinter = GraphPrinter()
 
-        reportsByDevice.forEach { (key: String, value: List<Pair<String, BenchmarkReport>>) ->
+        reportsByDevice.forEach { (deviceName: String, value: List<Pair<String, BenchmarkReport>>) ->
             if (value.size > 1) {
                 graphPrinter.printComposeHistory(
                     reports = value,
@@ -194,9 +194,20 @@ task("go") {
                         projectDir
                     ),
                     reportDirectory = BenchmarkConfig.localReportsDirPath(projectDir)
-                ).printDescription(key, value)
+                ).printDescription(deviceName, value)
 
-                println("Benchmarks compared for the device ${key}!")
+                val displayableDeviceName =
+                    value.first().second.context.build.displayableDeviceName().capitalize()
+                graphPrinter.printDynamics(
+                    saveDir = File(
+                        File(BenchmarkConfig.localReportsDirPath(projectDir), BenchmarkConfig.DEVICE_REPORTS_DIR_NAME),
+                        deviceName
+                    ),
+                    allDeviceBenchmarkReports = mapOf(deviceName to value),
+                    graphTitle = "Jetpack Compose dynamics. $displayableDeviceName"
+                )
+
+                println("Benchmarks compared for the device ${deviceName}!")
             } else {
                 println("Two or more benchmark reports are required for comparison.")
             }
@@ -204,7 +215,7 @@ task("go") {
 
         // Print Jetpack Compose performance dynamics across all benchmarked devices
         graphPrinter.printDynamics(
-            saveDir = BenchmarkConfig.localReportsDirPath(projectDir),
+            saveDir = File(BenchmarkConfig.localReportsDirPath(projectDir), BenchmarkConfig.DEVICE_REPORTS_DIR_NAME),
             allDeviceBenchmarkReports = reportsByDevice
         )
     }

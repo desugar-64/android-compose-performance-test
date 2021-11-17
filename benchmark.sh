@@ -5,7 +5,7 @@ git checkout main
 while read line;
 do
     branchName="$line"
-    git checkout "${branchName::-1}"
+    git checkout "${branchName}"
     git branch
     sleep 1
     cd android-client

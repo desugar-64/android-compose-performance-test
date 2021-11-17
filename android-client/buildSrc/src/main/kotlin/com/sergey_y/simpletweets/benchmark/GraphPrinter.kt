@@ -192,10 +192,10 @@ class GraphPrinter {
     @OptIn(UnstablePlotlyAPI::class, ExperimentalStdlibApi::class)
     fun printDynamics(
         saveDir: File,
-        allDeviceBenchmarkReports: Map<String/*device name*/, List<Pair<String, BenchmarkReport>>>
+        allDeviceBenchmarkReports: Map<String/*device name*/, List<Pair<String/* Compose version */, BenchmarkReport>>>,
+        graphTitle: String = "Jetpack Compose dynamics"
     ) {
-        val reportsDir = File(saveDir, "reports")
-        val svgReport = File(reportsDir, "compose_dynamics.svg")
+        val svgReport = File(saveDir, "compose_dynamics.svg")
         if (svgReport.exists().not()) {
             svgReport.createNewFile()
         }
@@ -206,8 +206,8 @@ class GraphPrinter {
         val dataset = allDeviceBenchmarkReports.values.flatten()
             .groupBy { it.first }
             .mapValues { (_, values) -> values.map { it.second } }
-            .mapValues { (_, report) ->
-                val avg = report
+            .mapValues { (_, reports) ->
+                val avg = reports
                     .map { report -> report.benchmarks }
                     .flatten()
                     .map { summary ->
@@ -229,7 +229,7 @@ class GraphPrinter {
             performanceDynamicLine(
                 xsRange = xsRange,
                 xsText = xsText,
-                ysRange = ysRange.map { 1.75 },
+                ysRange = ysRange.map { 2.4 },
                 fillColor = Xkcd.LIGHTBLUE,
                 fillType = FillType.tozeroy,
                 lineMode = ScatterMode.none,
@@ -261,6 +261,17 @@ class GraphPrinter {
                     x.strings = listOf(xsText[idx], xsText[idx])
                     y.numbers = listOf(ysRange[idx], 1.0f)
                 }
+                scatter {
+                    mode = ScatterMode.lines
+                    line {
+                        dash = Dash.dot
+                        width = 0.75
+                        color(Xkcd.DARK_GREY)
+                    }
+                    x.numbers = listOf(xVal, xVal)
+                    x.strings = listOf(xsText[idx], xsText[idx])
+                    y.numbers = listOf(ysRange[idx], 2.0f)
+                }
             }
             // values dots
             performanceDynamicLine(
@@ -288,9 +299,22 @@ class GraphPrinter {
                 lineLabel = "Good"
             )
 
+            performanceDynamicLine(
+                xsRange = xsRange,
+                xsText = xsText,
+                ysRange = ysRange.map { 2.0 },
+                fillColor = "",
+                fillType = FillType.none,
+                ScatterMode.`lines+text`,
+                lineDash = Dash.dot,
+                lineColor = Xkcd.ALMOST_BLACK,
+                lineWidth = 0.95,
+                lineLabel = "Excellent"
+            )
+
 
             layout {
-                title = "Jetpack Compose dynamics"
+                title = graphTitle
                 width = 1024
                 height = 512
                 showlegend = false
@@ -307,12 +331,12 @@ class GraphPrinter {
                     linewidth = 1
                     linecolor(Xkcd.BLACK)
                     val minY = 0.0f
-                    val maxY = 1.75f
+                    val maxY = 2.4f
                     range(Value.of(minY), Value.of(maxY))
                     tickmode = TickMode.array
                     title = "Performance index"
                     ticktext = listOf(Value.of("Low"), Value.of(""), Value.of("High"))
-                    tickvals = listOf(Value.of(0), Value.of(1), Value.of(1.75))
+                    tickvals = listOf(Value.of(0), Value.of(1), Value.of(2.4))
                 }
             }
         }

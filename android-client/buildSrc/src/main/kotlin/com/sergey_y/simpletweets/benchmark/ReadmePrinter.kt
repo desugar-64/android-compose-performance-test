@@ -57,12 +57,13 @@ class ReadmePrinter(
         val device = benchmarkReport.context
 
         val content = buildString {
+            val displayableDeviceName = device.build.displayableDeviceName().capitalize()
 
             append("# Jetpack Compose performance test summary")
             dnl()
             append("## Device")
             dnl()
-            append("**Model:** ${device.build.displayableDeviceName()}")
+            append("**Model:** $displayableDeviceName")
             dnl()
             append("**Android API:** ${device.build.version.sdk}")
             dnl()
@@ -76,6 +77,8 @@ class ReadmePrinter(
             append("<br/>")
             dnl()
 
+            append("![$displayableDeviceName](compose_dynamics.svg)")
+            dnl()
             append("# Comparison table")
             nl()
             append("Test name / Compose version (P50/P90, values in ms)")
@@ -146,7 +149,7 @@ class ReadmePrinter(
             benchmarkReportSvgFiles.groupBy { it.name.split("_")[2] }.forEach { (name, files) ->
                 append("### $name")
                 nl()
-                files.forEach { image ->
+                files.sortedBy { it.name }.forEach { image ->
                     val relativePath = image.toRelativeString(deviceReportDir).replace("\\", "/")
                     append(("![${image.name}](${relativePath})"))
                     nl()

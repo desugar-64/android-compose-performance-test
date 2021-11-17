@@ -10,6 +10,8 @@ object BenchmarkConfig {
     const val LOCAL_BENCHMARK_VERSIONS_DIR_NAME = "benchmarked_compose_versions"
     const val LOCAL_BENCHMARK_DESCRIPTION_DIR_NAME = "benchmark_description"
 
+    const val DEVICE_REPORTS_DIR_NAME = "reports"
+
     fun localRawDataDirPath(projectDir: File): File {
         return File(projectDir, RAW_DATA_DIR_NAME)
     }
