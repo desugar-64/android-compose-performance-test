@@ -93,8 +93,8 @@ class MainActivity : ComponentActivity() {
         AnimatedNavHost(
             navController = navController,
             startDestination = "list",
-            enterTransition = { _, _ -> EnterTransition.None },
-            exitTransition = { _, _ -> fadeOut() }
+            enterTransition = { EnterTransition.None },
+            exitTransition = { fadeOut() }
         ) {
             composable("list") {
                 TweetList(modifier = Modifier, tweets = tweets) { tweetId ->
@@ -103,8 +103,8 @@ class MainActivity : ComponentActivity() {
             }
             composable(
                 "tweet/{id}",
-                enterTransition = { _, _ -> slideInHorizontally(initialOffsetX = { it }) },
-                exitTransition = { _, _ -> slideOutHorizontally(targetOffsetX = { it }) },
+                enterTransition = { slideInHorizontally(initialOffsetX = { it }) },
+                exitTransition = { slideOutHorizontally(targetOffsetX = { it }) },
                 arguments = listOf(navArgument("id") { type = NavType.StringType })
             ) { entry ->
                 val tweet = tweets.find { it.id == entry.arguments?.getString("id") }

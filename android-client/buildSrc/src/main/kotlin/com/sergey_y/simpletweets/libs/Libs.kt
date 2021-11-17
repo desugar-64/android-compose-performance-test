@@ -10,7 +10,7 @@ object Libs {
         const val agp = "com.android.tools.build:gradle:7.0.3"
     }
 
-    const val compose_version = "1.0.4"
-    const val accompanist_version = "0.21.0-beta"
-
+    const val compose_version = "1.1.0-beta03"
+    const val accompanist_version = "0.21.2-beta"
+    const val coil_version = "2.0.0-alpha03"
 }

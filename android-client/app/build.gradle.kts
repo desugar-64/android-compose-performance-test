@@ -1,3 +1,5 @@
+import com.sergey_y.simpletweets.libs.Libs
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -68,7 +70,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = com.sergey_y.simpletweets.libs.Libs.compose_version
+        kotlinCompilerExtensionVersion = Libs.compose_version
     }
     packagingOptions {
         resources {
@@ -79,24 +81,24 @@ android {
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.1.5")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${com.sergey_y.simpletweets.libs.Libs.kotlin_version}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Libs.kotlin_version}")
 
     implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.compose.ui:ui:${com.sergey_y.simpletweets.libs.Libs.compose_version}")
-    implementation("androidx.compose.material:material:${com.sergey_y.simpletweets.libs.Libs.compose_version}")
-    implementation("androidx.compose.material:material-icons-extended:${com.sergey_y.simpletweets.libs.Libs.compose_version}")
-    implementation("androidx.compose.ui:ui-tooling-preview:${com.sergey_y.simpletweets.libs.Libs.compose_version}")
+    implementation("androidx.compose.ui:ui:${Libs.compose_version}")
+    implementation("androidx.compose.material:material:${Libs.compose_version}")
+    implementation("androidx.compose.material:material-icons-extended:${Libs.compose_version}")
+    implementation("androidx.compose.ui:ui-tooling-preview:${Libs.compose_version}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.activity:activity-compose:1.4.0")
-    implementation("io.coil-kt:coil-compose:1.3.2")
-    implementation("com.google.accompanist:accompanist-insets:${com.sergey_y.simpletweets.libs.Libs.accompanist_version}")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:${com.sergey_y.simpletweets.libs.Libs.accompanist_version}")
-    implementation("com.google.accompanist:accompanist-navigation-animation:${com.sergey_y.simpletweets.libs.Libs.accompanist_version}")
+    implementation("io.coil-kt:coil-compose:${Libs.coil_version}")
+    implementation("com.google.accompanist:accompanist-insets:${Libs.accompanist_version}")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:${Libs.accompanist_version}")
+    implementation("com.google.accompanist:accompanist-navigation-animation:${Libs.accompanist_version}")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${com.sergey_y.simpletweets.libs.Libs.compose_version}")
-    debugImplementation("androidx.compose.ui:ui-tooling:${com.sergey_y.simpletweets.libs.Libs.compose_version}")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${Libs.compose_version}")
+    debugImplementation("androidx.compose.ui:ui-tooling:${Libs.compose_version}")
 }
