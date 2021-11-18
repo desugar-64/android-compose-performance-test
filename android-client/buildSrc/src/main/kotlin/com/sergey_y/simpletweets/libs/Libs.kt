@@ -12,5 +12,5 @@ object Libs {
 
     const val compose_version = "1.0.3"
     const val accompanist_version = "0.19.0"
-
+    const val coil_version = "1.4.0"
 }
