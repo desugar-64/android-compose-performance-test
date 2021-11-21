@@ -2,13 +2,13 @@
 
 <br/>
 
-## 🛑 Disclaimer 
-```
-This project is not official, and the information is provided "as-is".
-All test cases described by the author are based only on his experience and knowledge of the technology at the moment and may not reflect the actual state of affairs. 
+> ## 🛑 Disclaimer 
+> This project is not official, and the information is provided "as-is".
+All test cases described by the author are based only on his experience and knowledge of the technology at the moment ?and may not reflect the actual state of affairs. 
 The information contained here can not be considered the only source of truth and serves solely as general information about Jetpack Compose's performance.
 Make any conclusions only at your own discretion.
-```
+
+
 
 <br/>
 
