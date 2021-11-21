@@ -261,16 +261,19 @@ class GraphPrinter {
                     x.strings = listOf(xsText[idx], xsText[idx])
                     y.numbers = listOf(ysRange[idx], 1.0f)
                 }
-                scatter {
-                    mode = ScatterMode.lines
-                    line {
-                        dash = Dash.dot
-                        width = 0.75
-                        color(Xkcd.DARK_GREY)
+
+                if (ysRange[idx] > 1.0f) {
+                    scatter {
+                        mode = ScatterMode.lines
+                        line {
+                            dash = Dash.dot
+                            width = 0.75
+                            color(Xkcd.DARK_GREY)
+                        }
+                        x.numbers = listOf(xVal, xVal)
+                        x.strings = listOf(xsText[idx], xsText[idx])
+                        y.numbers = listOf(ysRange[idx], 2.0f)
                     }
-                    x.numbers = listOf(xVal, xVal)
-                    x.strings = listOf(xsText[idx], xsText[idx])
-                    y.numbers = listOf(ysRange[idx], 2.0f)
                 }
             }
             // values dots
