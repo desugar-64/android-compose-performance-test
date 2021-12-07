@@ -6,7 +6,6 @@ while read line;
 do
     branchName="$line"
     git checkout "${branchName}"
-    git branch
     sleep 1
     cd android-client
     echo "connect your phone and unlock the screen"
