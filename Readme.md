@@ -33,6 +33,7 @@ Tested Jetpack Compose versions:
  - `1.1.0-beta01` 
  - `1.1.0-beta02`
  - `1.1.0-beta03`
+ - `1.1.0-beta04`
 
 The project is continuously updating.
 
