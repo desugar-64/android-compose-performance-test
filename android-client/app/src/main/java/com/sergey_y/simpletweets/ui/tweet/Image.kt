@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -20,9 +21,11 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
+import coil.compose.AsyncImage
 import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
 import coil.size.PixelSize
+import coil.size.Size
 import com.sergey_y.simpletweets.R
 import com.sergey_y.simpletweets.ui.theme.SimpleTweetsTheme
 
@@ -118,7 +121,11 @@ Triple image layout:
 @ExperimentalCoilApi
 @Composable
 fun TripleImage(imageHeight: Dp, imgA: String, imgB: String, imgC: String, compactMode: Boolean) {
-    Row(modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(IntrinsicSize.Min)
+    ) {
         var imgASize by remember { mutableStateOf(IntSize.Zero) }
         // Image A
         SimpleTweetImage(
@@ -266,13 +273,16 @@ private fun SimpleTweetImage(
     compactMode: Boolean
 ) {
     val isImgSizeKnown = imgSize != IntSize.Zero && imgSize.width > 0 && imgSize.height > 0
-    Image(
+    AsyncImage(
         modifier = modifier.clip(clipShape),
-        painter = rememberImagePainter(imgUrl.takeIf { isImgSizeKnown }) {
-            if (isImgSizeKnown) {
-                setImageSize(imgSize.width, imgSize.height, compactMode)
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(imgUrl.takeIf { isImgSizeKnown })
+            .apply {
+                if (isImgSizeKnown) {
+                    setImageSize(imgSize.width, imgSize.height, compactMode)
+                }
             }
-        },
+            .build(),
         contentDescription = null,
         contentScale = ContentScale.Crop
     )
@@ -300,7 +310,7 @@ fun ImageRow(
             imageHeight.roundToPx()
         }
         images.forEachIndexed { idx, image ->
-            val clipper = when(idx) {
+            val clipper = when (idx) {
                 0 -> startCorners
                 images.lastIndex -> endCorners
                 else -> RectangleShape
@@ -322,12 +332,7 @@ fun ImageRow(
 
 private fun ImageRequest.Builder.setImageSize(width: Int, height: Int, compactMode: Boolean) {
     val qualityReducer = if (compactMode) LOW_IMAGE_QUALITY else HIGH_IMAGE_QUALITY
-    size(
-        PixelSize(
-            (width * qualityReducer).toInt(),
-            (height * qualityReducer).toInt()
-        )
-    )
+    size(Size((width * qualityReducer).toInt(), (height * qualityReducer).toInt()))
 }
 
 @OptIn(ExperimentalCoilApi::class)
@@ -353,7 +358,7 @@ private fun DuoPreview() {
 @Composable
 private fun TriplePreview() {
     SimpleTweetsTheme {
-        TripleImage(imgA = "", imgB = "",  imgC = "", imageHeight = 150.dp, compactMode = false)
+        TripleImage(imgA = "", imgB = "", imgC = "", imageHeight = 150.dp, compactMode = false)
     }
 }
 

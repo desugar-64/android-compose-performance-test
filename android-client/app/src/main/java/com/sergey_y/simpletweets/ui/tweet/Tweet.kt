@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -32,9 +33,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import coil.size.PixelSize
+import coil.size.Size
 import coil.transform.CircleCropTransformation
 import com.sergey_y.simpletweets.data.Tweet
 import com.sergey_y.simpletweets.ui.theme.*
@@ -233,18 +234,25 @@ fun Avatar(userAvatar: String, compactMode: Boolean) {
     val imgLayoutSizePx = with(LocalDensity.current) {
         imgLayoutSizeDp.roundToPx()
     }
-    Image(
-        painter = rememberImagePainter(userAvatar) {
-            setImageSize(imgLayoutSizePx, imgLayoutSizePx, compactMode)
-            transformations(CircleCropTransformation())
-        },
-        contentDescription = null,
-        modifier = Modifier.size(imgLayoutSizeDp).semantics { contentDescription = "avatar" }
+    AsyncImage(
+        modifier = Modifier
+            .size(imgLayoutSizeDp)
+            .semantics { contentDescription = "avatar" },
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(userAvatar)
+            .transformations(CircleCropTransformation())
+            .setImageSize(imgLayoutSizePx, imgLayoutSizePx, compactMode)
+            .build(),
+        contentDescription = null
     )
 }
 
 @Composable
-fun ImageList(images: List<String>, compactMode: Boolean, imageRowHeight: Dp = if (compactMode) 125.dp else 150.dp) {
+fun ImageList(
+    images: List<String>,
+    compactMode: Boolean,
+    imageRowHeight: Dp = if (compactMode) 125.dp else 150.dp
+) {
     when (images.size) {
         1 -> MonoImage(images.first(), imageRowHeight, compactMode)
         2 -> DuoImage(images[0], images[1], imageRowHeight, compactMode)
@@ -268,14 +276,13 @@ fun ImageList(images: List<String>, compactMode: Boolean, imageRowHeight: Dp = i
 
 }
 
-private fun ImageRequest.Builder.setImageSize(width: Int, height: Int, compactMode: Boolean) {
+private fun ImageRequest.Builder.setImageSize(
+    width: Int,
+    height: Int,
+    compactMode: Boolean
+): ImageRequest.Builder {
     val qualityReducer = if (compactMode) LOW_IMAGE_QUALITY else HIGH_IMAGE_QUALITY
-    size(
-        PixelSize(
-            (width * qualityReducer).toInt(),
-            (height * qualityReducer).toInt()
-        )
-    )
+    return size(Size((width * qualityReducer).toInt(), (height * qualityReducer).toInt()))
 }
 
 @Composable
