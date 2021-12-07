@@ -19,18 +19,18 @@
 # Comparison table
 Test name / Compose version (P50/P90, values in ms)
 
-Test | 1.0.3 | 1.0.4 | 1.0.5 | 1.1.0-beta01 | 1.1.0-beta02 | 1.1.0-beta03
---- | ---: | ---: | ---: | ---: | ---: | ---:
-lazyListScroll | `4.8` / `7.9` | `5.1` / `8.5` | `5.1` / `8.3` | `5.0` / `8.0` | `5.1` / `7.7` | `5.1` / `8.0`
-particlesCustomLayout | `12.9` / `14.8` | `13.2` / `15.2` | `13.3` / `14.7` | `13.3` / `15.2` | `13.2` / `15.0` | `13.3` / `15.2`
-particlesLayoutOffset | `14.8` / `16.8` | `17.2` / `18.7` | `17.2` / `18.8` | `17.4` / `18.8` | `17.9` / `19.6` | `16.8` / `18.3`
-navigateToScreen | `8.3` / `11.9` | `8.4` / `10.9` | `8.0` / `10.1` | `8.5` / `10.1` | `8.4` / `10.0` | `8.5` / `10.0`
-itemRecomposition | `9.5` / `22.4` | `10.2` / `22.9` | `10.5` / `21.7` | `10.0` / `23.6` | `9.8` / `22.8` | `9.6` / `22.3`
-particlesCanvas | `11.0` / `13.4` | `11.5` / `13.7` | `11.3` / `13.9` | `11.5` / `13.5` | `11.4` / `13.6` | `11.5` / `13.6`
-lazyListFling | `5.2` / `8.5` | `5.3` / `8.7` | `5.3` / `8.7` | `5.4` / `9.1` | `5.4` / `9.2` | `5.4` / `9.4`
-addItemsToColumn | `10.6` / `23.9` | `10.7` / `25.3` | `10.4` / `26.6` | `10.2` / `25.9` | `10.2` / `25.5` | `10.2` / `26.2`
-particlesLayoutLayer | `16.0` / `18.2` | `15.3` / `19.2` | `15.4` / `19.0` | `15.4` / `18.9` | `15.4` / `18.7` | `15.4` / `18.6`
-transitionAnimation | `21.4` / `27.7` | `25.1` / `28.5` | `25.4` / `29.3` | `18.2` / `21.3` | `16.9` / `20.1` | `19.5` / `22.7`
+Test | 1.0.3 | 1.0.4 | 1.0.5 | 1.1.0-beta01 | 1.1.0-beta02 | 1.1.0-beta03 | 1.1.0-beta04
+--- | ---: | ---: | ---: | ---: | ---: | ---: | ---:
+lazyListScroll | `4.8` / `7.9` | `5.1` / `8.5` | `5.1` / `8.3` | `5.0` / `8.0` | `5.1` / `7.7` | `5.1` / `8.0` | `5.4` / `8.5`
+particlesCustomLayout | `12.9` / `14.8` | `13.2` / `15.2` | `13.3` / `14.7` | `13.3` / `15.2` | `13.2` / `15.0` | `13.3` / `15.2` | `13.3` / `15.3`
+particlesLayoutOffset | `14.8` / `16.8` | `17.2` / `18.7` | `17.2` / `18.8` | `17.4` / `18.8` | `17.9` / `19.6` | `16.8` / `18.3` | `17.8` / `19.1`
+navigateToScreen | `8.3` / `11.9` | `8.4` / `10.9` | `8.0` / `10.1` | `8.5` / `10.1` | `8.4` / `10.0` | `8.5` / `10.0` | `8.8` / `10.4`
+itemRecomposition | `9.5` / `22.4` | `10.2` / `22.9` | `10.5` / `21.7` | `10.0` / `23.6` | `9.8` / `22.8` | `9.6` / `22.3` | `10.6` / `24.0`
+particlesCanvas | `11.0` / `13.4` | `11.5` / `13.7` | `11.3` / `13.9` | `11.5` / `13.5` | `11.4` / `13.6` | `11.5` / `13.6` | `11.7` / `13.6`
+lazyListFling | `5.2` / `8.5` | `5.3` / `8.7` | `5.3` / `8.7` | `5.4` / `9.1` | `5.4` / `9.2` | `5.4` / `9.4` | `5.5` / `9.4`
+addItemsToColumn | `10.6` / `23.9` | `10.7` / `25.3` | `10.4` / `26.6` | `10.2` / `25.9` | `10.2` / `25.5` | `10.2` / `26.2` | `10.3` / `27.2`
+particlesLayoutLayer | `16.0` / `18.2` | `15.3` / `19.2` | `15.4` / `19.0` | `15.4` / `18.9` | `15.4` / `18.7` | `15.4` / `18.6` | `15.8` / `18.6`
+transitionAnimation | `21.4` / `27.7` | `25.1` / `28.5` | `25.4` / `29.3` | `18.2` / `21.3` | `16.9` / `20.1` | `19.5` / `22.7` | `18.2` / `21.4`
 <br/>
 
 # lazyListScroll
@@ -144,6 +144,7 @@ Preview | Description
 ![compose_1.1.0-beta01_transitionAnimation_benchmark.svg](benchmark/compose_1.1.0-beta01_transitionAnimation_benchmark.svg)
 ![compose_1.1.0-beta02_transitionAnimation_benchmark.svg](benchmark/compose_1.1.0-beta02_transitionAnimation_benchmark.svg)
 ![compose_1.1.0-beta03_transitionAnimation_benchmark.svg](benchmark/compose_1.1.0-beta03_transitionAnimation_benchmark.svg)
+![compose_1.1.0-beta04_transitionAnimation_benchmark.svg](benchmark/compose_1.1.0-beta04_transitionAnimation_benchmark.svg)
 
 ---
 ### lazyListScroll
@@ -153,6 +154,7 @@ Preview | Description
 ![compose_1.1.0-beta01_lazyListScroll_benchmark.svg](benchmark/compose_1.1.0-beta01_lazyListScroll_benchmark.svg)
 ![compose_1.1.0-beta02_lazyListScroll_benchmark.svg](benchmark/compose_1.1.0-beta02_lazyListScroll_benchmark.svg)
 ![compose_1.1.0-beta03_lazyListScroll_benchmark.svg](benchmark/compose_1.1.0-beta03_lazyListScroll_benchmark.svg)
+![compose_1.1.0-beta04_lazyListScroll_benchmark.svg](benchmark/compose_1.1.0-beta04_lazyListScroll_benchmark.svg)
 
 ---
 ### 500particlesAnimation
@@ -162,6 +164,7 @@ Preview | Description
 ![compose_1.1.0-beta01_500particlesAnimation_benchmark.svg](benchmark/compose_1.1.0-beta01_500particlesAnimation_benchmark.svg)
 ![compose_1.1.0-beta02_500particlesAnimation_benchmark.svg](benchmark/compose_1.1.0-beta02_500particlesAnimation_benchmark.svg)
 ![compose_1.1.0-beta03_500particlesAnimation_benchmark.svg](benchmark/compose_1.1.0-beta03_500particlesAnimation_benchmark.svg)
+![compose_1.1.0-beta04_500particlesAnimation_benchmark.svg](benchmark/compose_1.1.0-beta04_500particlesAnimation_benchmark.svg)
 
 ---
 ### lazyListFling
@@ -171,24 +174,7 @@ Preview | Description
 ![compose_1.1.0-beta01_lazyListFling_benchmark.svg](benchmark/compose_1.1.0-beta01_lazyListFling_benchmark.svg)
 ![compose_1.1.0-beta02_lazyListFling_benchmark.svg](benchmark/compose_1.1.0-beta02_lazyListFling_benchmark.svg)
 ![compose_1.1.0-beta03_lazyListFling_benchmark.svg](benchmark/compose_1.1.0-beta03_lazyListFling_benchmark.svg)
-
----
-### itemRecomposition
-![compose_1.0.3_itemRecomposition_benchmark.svg](benchmark/compose_1.0.3_itemRecomposition_benchmark.svg)
-![compose_1.0.4_itemRecomposition_benchmark.svg](benchmark/compose_1.0.4_itemRecomposition_benchmark.svg)
-![compose_1.0.5_itemRecomposition_benchmark.svg](benchmark/compose_1.0.5_itemRecomposition_benchmark.svg)
-![compose_1.1.0-beta01_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0-beta01_itemRecomposition_benchmark.svg)
-![compose_1.1.0-beta02_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0-beta02_itemRecomposition_benchmark.svg)
-![compose_1.1.0-beta03_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0-beta03_itemRecomposition_benchmark.svg)
-
----
-### addItemsToColumn
-![compose_1.0.3_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.3_addItemsToColumn_benchmark.svg)
-![compose_1.0.4_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.4_addItemsToColumn_benchmark.svg)
-![compose_1.0.5_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.5_addItemsToColumn_benchmark.svg)
-![compose_1.1.0-beta01_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0-beta01_addItemsToColumn_benchmark.svg)
-![compose_1.1.0-beta02_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0-beta02_addItemsToColumn_benchmark.svg)
-![compose_1.1.0-beta03_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0-beta03_addItemsToColumn_benchmark.svg)
+![compose_1.1.0-beta04_lazyListFling_benchmark.svg](benchmark/compose_1.1.0-beta04_lazyListFling_benchmark.svg)
 
 ---
 ### navigateToScreen
@@ -198,5 +184,26 @@ Preview | Description
 ![compose_1.1.0-beta01_navigateToScreen_benchmark.svg](benchmark/compose_1.1.0-beta01_navigateToScreen_benchmark.svg)
 ![compose_1.1.0-beta02_navigateToScreen_benchmark.svg](benchmark/compose_1.1.0-beta02_navigateToScreen_benchmark.svg)
 ![compose_1.1.0-beta03_navigateToScreen_benchmark.svg](benchmark/compose_1.1.0-beta03_navigateToScreen_benchmark.svg)
+![compose_1.1.0-beta04_navigateToScreen_benchmark.svg](benchmark/compose_1.1.0-beta04_navigateToScreen_benchmark.svg)
+
+---
+### itemRecomposition
+![compose_1.0.3_itemRecomposition_benchmark.svg](benchmark/compose_1.0.3_itemRecomposition_benchmark.svg)
+![compose_1.0.4_itemRecomposition_benchmark.svg](benchmark/compose_1.0.4_itemRecomposition_benchmark.svg)
+![compose_1.0.5_itemRecomposition_benchmark.svg](benchmark/compose_1.0.5_itemRecomposition_benchmark.svg)
+![compose_1.1.0-beta01_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0-beta01_itemRecomposition_benchmark.svg)
+![compose_1.1.0-beta02_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0-beta02_itemRecomposition_benchmark.svg)
+![compose_1.1.0-beta03_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0-beta03_itemRecomposition_benchmark.svg)
+![compose_1.1.0-beta04_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0-beta04_itemRecomposition_benchmark.svg)
+
+---
+### addItemsToColumn
+![compose_1.0.3_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.3_addItemsToColumn_benchmark.svg)
+![compose_1.0.4_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.4_addItemsToColumn_benchmark.svg)
+![compose_1.0.5_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.5_addItemsToColumn_benchmark.svg)
+![compose_1.1.0-beta01_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0-beta01_addItemsToColumn_benchmark.svg)
+![compose_1.1.0-beta02_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0-beta02_addItemsToColumn_benchmark.svg)
+![compose_1.1.0-beta03_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0-beta03_addItemsToColumn_benchmark.svg)
+![compose_1.1.0-beta04_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0-beta04_addItemsToColumn_benchmark.svg)
 
 ---
