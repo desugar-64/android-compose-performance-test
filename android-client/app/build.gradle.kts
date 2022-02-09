@@ -88,7 +88,7 @@ dependencies {
     implementation("androidx.compose.material:material:${Libs.compose_version}")
     implementation("androidx.compose.material:material-icons-extended:${Libs.compose_version}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Libs.compose_version}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("io.coil-kt:coil-compose:${Libs.coil_version}")
     implementation("com.google.accompanist:accompanist-insets:${Libs.accompanist_version}")
