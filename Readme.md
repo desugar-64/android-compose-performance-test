@@ -24,12 +24,13 @@ Devices used for testing:
  - `Samsung Galaxy S21 Ultra (Exynos variant), Android 12;`
  - `OnePlus Nord N10, Android 11;`
  - `Pixel 2 XL, Android 11;`
- - `Xiaomi Mi 6, Android 9.`
+ - ~~`Xiaomi Mi 6, Android 9.`~~ device died (×_×)
 
 Tested Jetpack Compose versions: 
  - `1.0.3`
  - `1.0.4`
  - `1.0.5`
+ - `1.1.0`
 
 The project is continuously updating.
 
