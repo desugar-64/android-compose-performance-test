@@ -19,18 +19,18 @@
 # Comparison table
 Test name / Compose version (P50/P90, values in ms)
 
-Test | 1.0.3 | 1.0.4 | 1.0.5
---- | ---: | ---: | ---:
-lazyListScroll | `4.8` / `7.9` | `5.1` / `8.5` | `5.1` / `8.3`
-particlesCustomLayout | `12.9` / `14.8` | `13.2` / `15.2` | `13.3` / `14.7`
-particlesLayoutOffset | `14.8` / `16.8` | `17.2` / `18.7` | `17.2` / `18.8`
-navigateToScreen | `8.3` / `11.9` | `8.4` / `10.9` | `8.0` / `10.1`
-itemRecomposition | `9.5` / `22.4` | `10.2` / `22.9` | `10.5` / `21.7`
-particlesCanvas | `11.0` / `13.4` | `11.5` / `13.7` | `11.3` / `13.9`
-lazyListFling | `5.2` / `8.5` | `5.3` / `8.7` | `5.3` / `8.7`
-addItemsToColumn | `10.6` / `23.9` | `10.7` / `25.3` | `10.4` / `26.6`
-particlesLayoutLayer | `16.0` / `18.2` | `15.3` / `19.2` | `15.4` / `19.0`
-transitionAnimation | `21.4` / `27.7` | `25.1` / `28.5` | `25.4` / `29.3`
+Test | 1.0.3 | 1.0.4 | 1.0.5 | 1.1.0
+--- | ---: | ---: | ---: | ---:
+lazyListScroll | `4.8` / `7.9` | `5.1` / `8.5` | `5.1` / `8.3` | `5.1` / `7.7`
+particlesCustomLayout | `12.9` / `14.8` | `13.2` / `15.2` | `13.3` / `14.7` | `13.3` / `15.2`
+particlesLayoutOffset | `14.8` / `16.8` | `17.2` / `18.7` | `17.2` / `18.8` | `17.1` / `18.4`
+navigateToScreen | `8.3` / `11.9` | `8.4` / `10.9` | `8.0` / `10.1` | `8.9` / `10.7`
+itemRecomposition | `9.5` / `22.4` | `10.2` / `22.9` | `10.5` / `21.7` | `10.8` / `24.2`
+particlesCanvas | `11.0` / `13.4` | `11.5` / `13.7` | `11.3` / `13.9` | `11.8` / `13.8`
+lazyListFling | `5.2` / `8.5` | `5.3` / `8.7` | `5.3` / `8.7` | `5.4` / `8.0`
+addItemsToColumn | `10.6` / `23.9` | `10.7` / `25.3` | `10.4` / `26.6` | `10.7` / `27.3`
+particlesLayoutLayer | `16.0` / `18.2` | `15.3` / `19.2` | `15.4` / `19.0` | `15.6` / `18.3`
+transitionAnimation | `21.4` / `27.7` | `25.1` / `28.5` | `25.4` / `29.3` | `27.0` / `30.8`
 <br/>
 
 # lazyListScroll
@@ -141,41 +141,48 @@ Preview | Description
 ![compose_1.0.3_lazyListScroll_benchmark.svg](benchmark/compose_1.0.3_lazyListScroll_benchmark.svg)
 ![compose_1.0.4_lazyListScroll_benchmark.svg](benchmark/compose_1.0.4_lazyListScroll_benchmark.svg)
 ![compose_1.0.5_lazyListScroll_benchmark.svg](benchmark/compose_1.0.5_lazyListScroll_benchmark.svg)
+![compose_1.1.0_lazyListScroll_benchmark.svg](benchmark/compose_1.1.0_lazyListScroll_benchmark.svg)
 
 ---
 ### lazyListFling
 ![compose_1.0.3_lazyListFling_benchmark.svg](benchmark/compose_1.0.3_lazyListFling_benchmark.svg)
 ![compose_1.0.4_lazyListFling_benchmark.svg](benchmark/compose_1.0.4_lazyListFling_benchmark.svg)
 ![compose_1.0.5_lazyListFling_benchmark.svg](benchmark/compose_1.0.5_lazyListFling_benchmark.svg)
+![compose_1.1.0_lazyListFling_benchmark.svg](benchmark/compose_1.1.0_lazyListFling_benchmark.svg)
 
 ---
 ### transitionAnimation
 ![compose_1.0.3_transitionAnimation_benchmark.svg](benchmark/compose_1.0.3_transitionAnimation_benchmark.svg)
 ![compose_1.0.4_transitionAnimation_benchmark.svg](benchmark/compose_1.0.4_transitionAnimation_benchmark.svg)
 ![compose_1.0.5_transitionAnimation_benchmark.svg](benchmark/compose_1.0.5_transitionAnimation_benchmark.svg)
+![compose_1.1.0_transitionAnimation_benchmark.svg](benchmark/compose_1.1.0_transitionAnimation_benchmark.svg)
 
 ---
 ### itemRecomposition
 ![compose_1.0.3_itemRecomposition_benchmark.svg](benchmark/compose_1.0.3_itemRecomposition_benchmark.svg)
 ![compose_1.0.4_itemRecomposition_benchmark.svg](benchmark/compose_1.0.4_itemRecomposition_benchmark.svg)
 ![compose_1.0.5_itemRecomposition_benchmark.svg](benchmark/compose_1.0.5_itemRecomposition_benchmark.svg)
+![compose_1.1.0_itemRecomposition_benchmark.svg](benchmark/compose_1.1.0_itemRecomposition_benchmark.svg)
 
 ---
 ### addItemsToColumn
 ![compose_1.0.3_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.3_addItemsToColumn_benchmark.svg)
 ![compose_1.0.4_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.4_addItemsToColumn_benchmark.svg)
 ![compose_1.0.5_addItemsToColumn_benchmark.svg](benchmark/compose_1.0.5_addItemsToColumn_benchmark.svg)
+![compose_1.1.0_addItemsToColumn_benchmark.svg](benchmark/compose_1.1.0_addItemsToColumn_benchmark.svg)
 
 ---
 ### navigateToScreen
 ![compose_1.0.3_navigateToScreen_benchmark.svg](benchmark/compose_1.0.3_navigateToScreen_benchmark.svg)
 ![compose_1.0.4_navigateToScreen_benchmark.svg](benchmark/compose_1.0.4_navigateToScreen_benchmark.svg)
 ![compose_1.0.5_navigateToScreen_benchmark.svg](benchmark/compose_1.0.5_navigateToScreen_benchmark.svg)
+![compose_1.1.0_navigateToScreen_benchmark.svg](benchmark/compose_1.1.0_navigateToScreen_benchmark.svg)
 
 ---
 ### 500particlesAnimation
 ![compose_1.0.3_500particlesAnimation_benchmark.svg](benchmark/compose_1.0.3_500particlesAnimation_benchmark.svg)
 ![compose_1.0.4_500particlesAnimation_benchmark.svg](benchmark/compose_1.0.4_500particlesAnimation_benchmark.svg)
 ![compose_1.0.5_500particlesAnimation_benchmark.svg](benchmark/compose_1.0.5_500particlesAnimation_benchmark.svg)
+![compose_1.1.0_500particlesAnimation_benchmark.svg](benchmark/compose_1.1.0_500particlesAnimation_benchmark.svg)
 
 ---
