@@ -61,12 +61,12 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
 }
 androidComponents {
@@ -84,7 +84,7 @@ dependencies {
     implementation("androidx.test.ext:junit:1.1.3")
     implementation("androidx.test.espresso:espresso-core:3.4.0")
     implementation("androidx.test.uiautomator:uiautomator:2.2.0")
-    implementation("androidx.benchmark:benchmark-macro-junit4:1.1.0-alpha12")
+    implementation("androidx.benchmark:benchmark-macro-junit4:1.1.0")
 
     compileOnly("space.kscience:plotlykt-server:0.5.0")
 }
@@ -150,7 +150,7 @@ val report = task("report") {
 }
 
 task("go") {
-//    dependsOn(report)
+    dependsOn(report)
     doLast {
         val benchmarksDir = BenchmarkConfig.localBenchmarkedComposeDirPath(projectDir)
         val files: Array<File> = benchmarksDir.listFiles() ?: emptyArray()

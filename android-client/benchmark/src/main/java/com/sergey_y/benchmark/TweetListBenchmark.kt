@@ -166,7 +166,7 @@ class TweetListBenchmark {
             metrics = listOf(FrameTimingMetric()),
             iterations = ITERATIONS,
             startupMode = StartupMode.WARM,
-            compilationMode = CompilationMode.SpeedProfile(warmupIterations = WARMUPS),
+            compilationMode = CompilationMode.Full(),
             setupBlock = setupBlock,
             measureBlock = measureBlock
 
