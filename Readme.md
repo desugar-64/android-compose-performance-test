@@ -31,6 +31,7 @@ Tested Jetpack Compose versions:
  - `1.0.4`
  - `1.0.5`
  - `1.1.0`
+ - `1.2.0-rc3`
 
 The project is continuously updating.
 
