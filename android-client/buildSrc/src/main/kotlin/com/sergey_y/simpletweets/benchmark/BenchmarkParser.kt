@@ -7,6 +7,7 @@ import kotlinx.serialization.json.Json
 class BenchmarkParser(private val benchmarkReport: String) {
     val json = Json {
         ignoreUnknownKeys = true
+        useAlternativeNames = true
     }
     fun parse(): BenchmarkReport {
         return json.decodeFromString(benchmarkReport)
