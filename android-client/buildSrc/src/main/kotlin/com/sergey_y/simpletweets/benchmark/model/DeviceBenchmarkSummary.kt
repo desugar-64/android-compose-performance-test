@@ -2,6 +2,7 @@ package com.sergey_y.simpletweets.benchmark.model
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.json.JsonNames
 
 @Serializable
 data class DeviceBenchmarkSummary(
@@ -23,6 +24,7 @@ class Metric
 
 @Serializable
 data class BenchmarkMetrics(
+    @JsonNames("frameCpuTimeMs", "frameDurationCpuMs")
     val frameCpuTimeMs: BenchmarkMetric
 )
 
