@@ -20,8 +20,8 @@ buildscript {
 allprojects {
     beforeEvaluate {
         tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).all {
-            sourceCompatibility = "1.8"
-            targetCompatibility = "1.8"
+//            sourceCompatibility = "1.8"
+//            targetCompatibility = "1.8"
             kotlinOptions {
                 jvmTarget = "1.8"
             }

@@ -1,6 +1,5 @@
 package com.sergey_y.simpletweets.ui.tweet
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -22,11 +21,8 @@ import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.AsyncImage
-import coil.compose.rememberImagePainter
 import coil.request.ImageRequest
-import coil.size.PixelSize
 import coil.size.Size
-import com.sergey_y.simpletweets.R
 import com.sergey_y.simpletweets.ui.theme.SimpleTweetsTheme
 
 const val LOW_IMAGE_QUALITY = 0.5f

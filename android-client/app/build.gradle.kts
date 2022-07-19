@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 32
 
     defaultConfig {
         applicationId = "com.sergey_y.simpletweets"
@@ -70,7 +70,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Libs.compose_version
+        kotlinCompilerExtensionVersion = "1.2.0"/*Libs.compose_version*/
     }
     packagingOptions {
         resources {
