@@ -76,9 +76,6 @@ class TweetListBenchmark {
     ) {
         device.wait(Until.findObject(By.desc("single_item")), 5000)
         awaitComposeIdle()
-        while (device.findObject(By.desc("last_item")) == null) {
-            awaitComposeIdle(15000)
-        }
     }
 
     @Test
